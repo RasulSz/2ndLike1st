@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" Background="BlanchedAlmond">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid ItemsSource="{Binding AuthorSet.Tables[0].DefaultView,UpdateSourceTrigger=PropertyChanged}" Name="author" FontSize="15" Grid.Column="2" Grid.RowSpan="4">
+    
+        </DataGrid>
+        <TextBox Text="{Binding Id}" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" Width="130" Height="40"></TextBox>
+        <TextBox Text="{Binding FirstName}" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" Width="130" Height="40" Grid.Row="1"></TextBox>
+        <TextBox Text="{Binding LastName}" FontSize="20" Grid.Column="1" HorizontalAlignment="Left" Width="130" Height="40" Grid.Row="2"></TextBox>
+        <Button Command="{Binding InsertCommand,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="3" Height="40" Width="130" Content="Insert" FontSize="25" Background="Green"></Button>
+        <Label Content="Id" FontSize="25" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+        <Label Content="FirstName" FontSize="21" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1"></Label>
+        <Label Content="LastName" FontSize="21" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2"></Label>
+    </Grid>
+</Window>
